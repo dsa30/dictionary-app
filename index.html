@@ -1,13 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" class="container max-w-2xl mx-auto min-h-screen p-10">
+      <form id="form">
+        <input
+          type="text"
+          placeholder="Enter a word"
+          id="get-input"
+          class="py-2 px-4 bg-slate-100 rounded-lg w-full mb-4"
+        />
+      </form>
+      <section>
+        <div class="word my-4">
+          <h1
+            class="text-2xl md:text-5xl text-slate-900 font-bold mb-2"
+            id="word"
+          >
+            keyboard
+          </h1>
+          <p class="text-purple-500 text-lg font-normal">/ki:bo:d/</p>
+        </div>
+      </section>
+      <section>
+        <p class="text-base font-bold my-8 italic">noun</p>
+        <p class="text-slate-400 mb-4 text-sm">Meaning</p>
+        <ul class="marker:text-purple-500 text-slate-800/80 list-disc">
+          <li>Meaning 1</li>
+          <li>Meaning 2</li>
+          <li>Meaning 3</li>
+        </ul>
+        <p class="my-4">
+          Synonyms
+          <span class="ml-4 text-purple-600 text-base italic font-bold"
+            >electronic keyboard</span
+          >
+        </p>
+      </section>
+      <section class="border-b-2 border-gray-300">
+        <p class="text-base font-bold my-8 italic">Verb</p>
+        <p class="text-slate-400 mb-4 text-sm">Meaning</p>
+        <ul class="marker:text-purple-500 text-slate-800/80 list-disc">
+          <li>Meaning 1</li>
+          <li>Meaning 2</li>
+          <li>Meaning 3</li>
+        </ul>
+        <p class="text-slate-500 my-4">
+          "Keyboarding is the part of this job I hate the most."
+        </p>
+      </section>
+      <section class="source">
+        <p class="text-sm text-slate-600 font-bold">Source</p>
+        <p class="text-slate-700/70 text-sm">
+          https://en.wikitionary.org/wiki/keyboard <a href="#">Open Source</a>
+        </p>
+      </section>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
