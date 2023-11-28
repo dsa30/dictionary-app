@@ -10,6 +10,28 @@
   </head>
   <body>
     <div id="app" class="container max-w-2xl mx-auto min-h-screen p-10">
+      <div class="logo-container">
+        <h1 class="logo mb-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            fill="currentColor"
+            class="bi bi-journal-text"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"
+            />
+            <path
+              d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
+            />
+            <path
+              d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
+            />
+          </svg>
+        </h1>
+      </div>
       <form id="form">
         <input
           type="text"
@@ -19,14 +41,33 @@
         />
       </form>
       <section>
-        <div class="word my-4">
-          <h1
-            class="text-2xl md:text-5xl text-slate-900 font-bold mb-2"
-            id="word"
-          >
-            keyboard
-          </h1>
-          <p class="text-purple-500 text-lg font-normal" id="phonetic"></p>
+        <div class="word my-4 flex justify-between items-center">
+          <div>
+            <h1
+              class="text-2xl md:text-5xl text-slate-900 font-bold mb-2"
+              id="word"
+            ></h1>
+            <p class="text-purple-500 text-lg font-normal" id="phonetic"></p>
+          </div>
+          <div class="play">
+            <button
+              id="playAudio"
+              class="p-4 rounded-full bg-purple-200 animate-pulse"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="bg-purple-800"
+                class="bi bi-play-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
       <section>
@@ -48,38 +89,14 @@
         <p class="text-base font-bold my-8 italic">Verb</p>
         <p class="text-slate-400 mb-4 text-sm">Meaning</p>
         <ul
-          class="marker:text-purple-500 text-slate-800/80 list-disc"
+          class="marker:text-purple-500 text-slate-800 list-disc"
           id="verb-definitions"
         ></ul>
         <ol class="text-slate-500 my-4 ml-3" id="example"></ol>
       </section>
-      <section class="source">
+      <section class="source flex items-center gap-4 mt-3">
         <p class="text-sm text-slate-600 font-bold">Source</p>
-        <p
-          class="text-slate-700/70 text-sm flex items-center justify-start gap-4"
-          id="urls"
-        >
-          https://en.wikitionary.org/wiki/keyboard
-          <a href="#" target="_blank"
-            ><i class="bi bi-box-arrow-up-right"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-box-arrow-up-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
-                /></svg></i
-          ></a>
-        </p>
+        <p class="text-slate-700/70 text-sm gap-1" id="urls"></p>
       </section>
     </div>
     <script type="module" src="/main.js"></script>

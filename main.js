@@ -21,6 +21,7 @@ async function getWordInfo(word) {
     const data = await response.json();
     const dictionaryInfo = {
       word: data[0].word,
+      audio: data[0].phonetics[1].audio,
       phonetic: data[0].phonetic,
       definitions: data[0].meanings[0].definitions,
       definitionsVerb: data[0].meanings[1].definitions,
@@ -35,10 +36,28 @@ async function getWordInfo(word) {
 
 const displayWordInfo = (displayWordObj) => {
   console.log(displayWordObj);
-  const { word, phonetic, urls, definitions, definitionsVerb } = displayWordObj;
+  const { word, phonetic, urls, audio } = displayWordObj;
   wordDefinition.innerText = word;
   wordPhonetic.innerText = phonetic === undefined ? "N/A" : phonetic;
-  sourceUrl.innerText = urls;
+  sourceUrl.innerHTML = `<a href=${urls} class="flex items-center justify-start" target="_blank"
+  >${urls}<i class="bi bi-box-arrow-up-right ml-2 inline-block"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      fill="currentColor"
+      class="bi bi-box-arrow-up-right"
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"
+      />
+      <path
+        fill-rule="evenodd"
+        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"
+      /></svg></i
+></a>`;
 };
 
 const getDefinitions = (displayWordObj) => {
